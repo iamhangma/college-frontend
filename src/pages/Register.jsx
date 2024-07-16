@@ -45,58 +45,58 @@ const Register = () => {
         <div
           style={{
             width: "700px",
-            background: "whitesmoke"
+            background: "whitesmoke",
           }}
         >
           <h1 className="m-4 text-center">Create your Account!</h1>
-<div style={{
-  display: 'flex',
-  justifyContent: "center"
-}}>
-
-          <form className="m-4 w-75">
-            
-            <label>Firstname</label>
-            <input
-              onChange={changeFirstname}
-              type="text"
-              className="form-control mb-2"
-              placeholder="Enter your firstname"
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <form className="m-4 w-75">
+              <label>Firstname</label>
+              <input
+                onChange={changeFirstname}
+                type="text"
+                className="form-control mb-2"
+                placeholder="Enter your firstname"
               />
 
-            <label>Lastname</label>
-            <input
-              onChange={changeLastname}
-              type="text"
-              className="form-control mb-2"
-              placeholder="Enter your lastname"
+              <label>Lastname</label>
+              <input
+                onChange={changeLastname}
+                type="text"
+                className="form-control mb-2"
+                placeholder="Enter your lastname"
               />
 
-            <label>Email Address</label>
-            <input
-              onChange={changeEmail}
-              type="email"
-              className="form-control mb-2"
-              placeholder="Enter your email"
+              <label>Email Address</label>
+              <input
+                onChange={changeEmail}
+                type="email"
+                className="form-control mb-2"
+                placeholder="Enter your email"
               />
 
-            <label>Password</label>
-            <input
-              onChange={changePassword}
-              type="password"
-              className="form-control mb-2"
-              placeholder="Enter your password"
+              <label>Password</label>
+              <input
+                onChange={changePassword}
+                type="password"
+                className="form-control mb-2"
+                placeholder="Enter your password"
               />
 
-            <button onClick={handleSubmit} className="btn btn-danger w-100">
-              Create an Account
-            </button>
+              <button onClick={handleSubmit} className="btn btn-danger w-100">
+                Create an Account
+              </button>
 
-            <a href="" className="text-black text-decoration-none">
-              Already have account?
-            </a>
-          </form>
-              </div>
+              <a href="" className="text-black text-decoration-none">
+                Already have account?
+              </a>
+            </form>
+          </div>
         </div>
       </div>
     </>
