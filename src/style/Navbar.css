@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #c4c4ce;
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #050000;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #e6bbac;
+  }
+  
+  .btn-outline-primary {
+    color: #fff;
+    border-color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #fff;
+    color: #2c3e50;
+  }

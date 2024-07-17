@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL : "http://localhost:5000",
+    baseURL : "http://localhost:5050",
     withCredentials : true,
     headers :{
         "Content-Type" : "application/json",
@@ -9,3 +9,4 @@ const Api = axios.create({
 })
 
 export const testApi = Api.get("/test")
+export const loginUserApi = (data) =>  Api.post('/api/user/login', data)

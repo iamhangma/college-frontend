@@ -6,7 +6,7 @@ const Card = ({ title, text }) => {
         minWidth: "300px",
         maxWidth: "350px"
     }}>
-      <div className="card-body">
+      <div className="">
         <h5 className="card-title">{title}</h5>
         <p className="card-text text-justify">{text}</p>
       </div>

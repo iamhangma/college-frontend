@@ -1,19 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from 'react'
+import React from "react";
+import { FaArrowRight } from "react-icons/fa6";
 
-const HomepageCard = () => {
+
+const HomepageCard = ({ title, text, imageSrc }) => {
   return (
-    <><div className="card mb-4 shadow-sm">
-    <img src="https://via.placeholder.com/150" className="card-img-top" alt="Card Image" />
-    <div className="card-body">
-      <h5 className="card-title">Card Title</h5>
-      <p className="card-text">This is a simple card with a placeholder image and some sample text.</p>
-      <a href="#" className="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-</>
-  )
-}
+    <>
+      <div className="card mb-4 shadow-sm" style={{
+        minWidth: "300px",
+        maxWidth: "350px"
+    }}>
+        <img src={imageSrc} className="card-img-top" height={"200px"} alt="Card Image" />
+        <div className="for myself">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{text}</p>
+          <a style={{
+            float: "right"
+          }} href="#" className="btn btn-primary">
+            Visit <span><FaArrowRight /></span>
+          </a>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default HomepageCard
+export default HomepageCard;
