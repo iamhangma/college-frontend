@@ -36,9 +36,9 @@ const Login = () => {
           } else {
             toast.success(res.data.message);
             localStorage.setItem("token", res.data.token);
-            navigate("/admin/dashboard");
-            const jsonDecode = JSON.stringify(res.data.userData);
-            localStorage.setItem("user", jsonDecode);
+            localStorage.setItem("user", JSON.stringify(res.data.userData));
+            console.log('Navigating to /questions');
+            navigate("/questions");  // Navigate to /questions
           }
         })
         .catch((err) => {
@@ -47,6 +47,10 @@ const Login = () => {
         });
     },
   });
+
+  const handleButtonClick = () => {
+    navigate("/questions"); // Navigate to /questions on button click
+  };
 
   return (
     <div className="login-container">
@@ -101,20 +105,25 @@ const Login = () => {
               </a>
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button onClick ={handleButtonClick}type="submit" className="btn btn-primary w-100">
               Login
             </button>
           </form>
 
           <div className="d-flex justify-content-center m-3">
             <span>Don't have an account?</span>
-            <Link to="/register" className="text-black text-decoration-none ml-2">
+            <Link to="/get-started" className="text-black text-decoration-none ml-2">
               Sign Up
             </Link>
           </div>
+          <div className="d-flex justify-content-center m-3">
+            {/* <button onClick={handleButtonClick} className="btn btn-secondary">
+              Go to Questions
+            </button> */}
+          </div>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 
