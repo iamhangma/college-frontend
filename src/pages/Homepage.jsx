@@ -49,7 +49,7 @@ const Homepage = () => {
     <div className="homepage-container">
      <button
               onClick={() => navigate('/questions')}
-              className="btn btn-outline-primary w-1"
+              className="btn btn-outline-secondary"
               type="submit"
             >
               <span style={{ whiteSpace: 'nowrap' }}>Get Started</span>
