@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import "../App.css"; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+import "../App.css"; 
 
 const EmailVerification = () => {
   const [verificationCode, setVerificationCode] = useState("");
+  const navigate = useNavigate();
 
   const handleCodeChange = (e) => {
     setVerificationCode(e.target.value);
@@ -12,6 +13,7 @@ const EmailVerification = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Verification code submitted:", verificationCode);
+    navigate('/therapyprocess');
   };
 
   const handleResendCode = () => {
@@ -20,10 +22,6 @@ const EmailVerification = () => {
 
   const handleUpdateEmail = () => {
     console.log("Update email address");
-  };
-
-  const handleOpenEmail = () => {
-    window.open("https://mail.google.com", "_blank");
   };
 
   return (
@@ -74,7 +72,6 @@ const EmailVerification = () => {
           style={{
             background: "#ECEE93",
             color: "black"
-
           }}
         >
           Update email address

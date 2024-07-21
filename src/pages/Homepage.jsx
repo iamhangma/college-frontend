@@ -36,6 +36,7 @@
 
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 // Navbar component
@@ -43,13 +44,21 @@ import '../App.css';
 
 // Homepage component
 const Homepage = () => {
+  const navigate = useNavigate();
   return (
     <div className="homepage-container">
+     <button
+              onClick={() => navigate('/questions')}
+              className="btn btn-outline-primary w-1"
+              type="submit"
+            >
+              <span style={{ whiteSpace: 'nowrap' }}>Get Started</span>
+            </button>
       {/* <div className="title-container">
         <h2 className="title">Your mental health matter</h2>
         <h2 className="title">You deserve to be happy and loved</h2>
       </div> */}
-      <div className="card-container">
+      {/* <div className="card-container">
         <a href="/myself" className="card">
           <div className="card-arrow">{">"}</div>
         </a>
@@ -59,7 +68,7 @@ const Homepage = () => {
         <a href="/teen" className="card">
           <div className="card-arrow">{">"}</div>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -67,11 +76,13 @@ const Homepage = () => {
 // App component
 const App = () => {
   return (
-    <div className="app-container">
+    // <div className="app-container">
      
       <Homepage />
-    </div>
+    // </div>
   );
 };
 
 export default App;
+
+

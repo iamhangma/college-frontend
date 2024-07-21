@@ -34,22 +34,22 @@ const TherapyProcess = () => {
 const TherapyPayment = () => {
   return (
     <div className="therapy-payment-container">
-      <h2>Cost: Original price: $50 Current price: $40 USD per week (charged every 4 weeks) -cancel anytime. Includes a weekly live session and text, audio and video messaging whenever you like. Message your therapist anytime, anywhere. No scheduling is required. Pick a time on your therapist's calendar to have a real-time session over chat, phone, or video.</h2>
-      <h3>Reduced Fee (student): $50 USD off.</h3>
+      <h4>Cost: Original price: $50 Current price: $40 USD per week (charged every 4 weeks) -cancel anytime. Includes a weekly live session and text, audio and video messaging whenever you like. Message your therapist anytime, anywhere. No scheduling is required. Pick a time on your therapist's calendar to have a real-time session over chat, phone, or video.</h4>
+      <h4>Reduced Fee (student): $50 USD off.</h4>
       <p>Your card will be charged the original price: $150 USD.</p>
-      <h2>Enter payment information to start:</h2>
+      <h3>Enter payment information to start:</h3>
       <div className="payment-options">
         <div className="payment-option">
-          <img src="credit-card.png" alt="Credit Card" />
-          <p>Credit card</p>
+          <img src="bank.png" alt="" />
+          <p></p>
         </div>
         <div className="payment-option">
-          <img src="esewa.png" alt="eSewa" />
-          <p>eSewa</p>
+          <img src="esewa.png" alt="" />
+          
         </div>
         <div className="payment-option">
-          <img src="fonepay.png" alt="Fonepay" />
-          <p>Fonepay</p>
+          <img src="fonepay.png" alt="" />
+        
         </div>
       </div>
       <div className="card-number-container">
@@ -66,8 +66,9 @@ const TherapyPayment = () => {
 const App = () => {
   return (
     <div className="app-container">
-      <TherapyPayment />
       <TherapyProcess />
+      <TherapyPayment />
+      
     </div>
   );
 };

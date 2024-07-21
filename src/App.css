@@ -32,10 +32,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    color: white;
+    color: rgb(36, 160, 52);
     font-family: serif;
    
   }
+
+  
   
   
   h1 {
@@ -70,6 +72,31 @@
     background-color: #585c61;
   }
   
+  .login-container {
+    background-image: url('../public/images/LOGINTWO.jpg');
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:#070003
+    
+  }
+  
+  /* .login-form {
+    width: 650px;
+    background: whitesmoke;
+    padding: 40px;
+    border-radius: 8px;
+  } */
+
+  /* App.css */
+
+/* General container for the login page */
+
+
   .register-button {
     background-color: #585c61;
   }
@@ -480,7 +507,32 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
+ 
+
+
+/* Get Started button */
+.btn-outline-primary {
+  background-color: #007bff; /* Primary blue color */
+  color: white; /* Text color */
+  padding: 6px 12px; /* Smaller padding */
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold; /* Font weight */
+  border: 2px solid #007bff; /* Border color */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.btn-outline-primary:hover {
+  background-color: #0056b3; /* Darker primary color on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.btn-outline-primary:active {
+  background-color: #003d80; /* Even darker primary color on active */
+  transform: translateY(0); /* Reset lift on active */
+}
+
   .title-container {
     text-align: center;
     margin-bottom: 40px;
@@ -493,7 +545,7 @@ body {
     margin-bottom: 20px;
   }
   
-  .card-container {
+  /* .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -584,7 +636,9 @@ body {
   
   .card:nth-child(3) {
     background: url('../public/images/five.png') no-repeat center center/cover;
-  }
+  } */
+  /* Small Get Started Button */
+
 
   .reviews-container {
     display: flex;
@@ -615,47 +669,48 @@ body {
     font-size: 1rem;
     line-height: 1.5;
   }
-
   .about-us-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
   .about-us-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
   
   .about-us-description {
     font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
   }
   
   .therapist-container {
-    width: 100%;
-    margin-top: 2rem;
+    margin-top: 40px;
   }
   
   .therapist-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center the h2 line */
   }
   
   .therapist-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2rem;
+    display: flex;
+    justify-content: center; /* Center the image container */
+    gap: 20px;
   }
   
   .therapist-card {
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
   
@@ -664,7 +719,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 200px;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     background-image: url('../public/images/aboutus.png');
     background-size: cover;
     background-position: center;
@@ -673,8 +728,18 @@ body {
     height: 150px;
   }
   
+  .therapist-image {
+    max-width: 200px;
+    border-radius: 100%;
+  }
+  
   .therapist-details {
     text-align: center;
+  }
+  
+  .therapist-name {
+    font-size: 1.2rem;
+    margin-top: 10px;
   }
   /* .therapist-name {
     font-size: 1.2rem;
@@ -700,104 +765,105 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 2rem;
-  }
-  
-  .therapy-payment-container,
-  .therapy-process-container {
-    max-width: 800px;
-    margin: 2rem 0;
     padding: 2rem;
-    background-color: #f4f4f4;
-    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .therapy-process-container{
+    width: 100%;
+    max-width: 7000px;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  .therapy-payment-container {
+    width: 50%;
+    max-width: 1000px;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
   }
   
-  .therapy-payment-container h2,
-  .therapy-process-container h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  .therapy-process-container h4,
+  .therapy-payment-container h4 {
     color: #333;
+    font-size: smaller;
+    margin-bottom: 1rem;
   }
   
-  .therapy-payment-container h3,
-  .therapy-process-container h3 {
-    font-size: 1.1rem;
+  .therapy-process-container h3,
+  .therapy-payment-container h3 {
+    font-size: large;
+    text-align: center;
+    color: #666;
     margin-bottom: 0.5rem;
-    color: #555;
   }
   
-  .therapy-payment-container p,
-  .therapy-process-container p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: #666;
-  }
-  
-  .therapy-payment-container ul,
   .therapy-process-container ul {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: #666;
     list-style-type: disc;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
   }
   
-  .payment-options {
+  .therapy-payment-container .payment-options {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
   
-  .payment-option {
+  .therapy-payment-container .payment-option {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 1rem;
   }
   
-  .payment-option img {
-    width: 50px;
-    height: 50px;
+  .therapy-payment-container .payment-option img {
+    width: 100px;
+    height: 70px;
     margin-bottom: 0.5rem;
+    background-image: url('../public/images/bank.png');
+    background-size: cover;
   }
   
-  .card-number-container {
+  .therapy-payment-container .payment-option:nth-child(2) img {
+    background-image: url('../public//images/esewa.png');
+  }
+  
+  .therapy-payment-container .payment-option:nth-child(3) img {
+    background-image: url('../public/images/fonepay.png');
+  }
+  
+  .therapy-payment-container .card-number-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
   
-  .card-number-container label {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-  }
-  
-  .card-number-container input {
+  .therapy-payment-container .card-number-container input {
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 5px;
   }
   
-  .secure-transaction {
+  .therapy-payment-container .secure-transaction {
     display: flex;
     justify-content: center;
   }
   
-  .start-therapy-button {
+  .therapy-payment-container .start-therapy-button {
     background-color: #4CAF50;
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
   }
   
-  .start-therapy-button:hover {
+  .therapy-payment-container .start-therapy-button:hover {
     background-color: #45a049;
   }

@@ -11,6 +11,7 @@ import Review from './pages/Review';
 import Contactus from './pages/Contactus';
 import Advice from './pages/Advice';
 import TherapyProcess from "./pages/TherapyProcess";
+// import TherapyPayment from './pages/TherapyPayment';
 import EmailVerification from "./pages/verification";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Router>
         <Navbar />
 
-        <div className="bg-success p-4">
+        <div className="bg-success">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/register" element={<Register />} />
@@ -31,6 +32,7 @@ function App() {
             <Route path="/contactus" element={<Contactus/>}/>
             <Route path="/advice" element={<Advice />} />
             <Route path="/therapyprocess" element={<TherapyProcess/>}/>
+            {/* <Route path="/therapy-payment" element={<TherapyPayment />} /> */}
             <Route path="/verification" element={<EmailVerification />} />
 
 

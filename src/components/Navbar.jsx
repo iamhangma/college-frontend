@@ -152,13 +152,7 @@ const Navbar = () => {
             >
               Register
             </button>
-            <button
-              onClick={() => navigate('/questions')}
-              className="btn btn-outline-primary w-100"
-              type="submit"
-            >
-              <span style={{ whiteSpace: 'nowrap' }}>Get Started</span>
-            </button>
+            
           </form>
         </div>
       </div>

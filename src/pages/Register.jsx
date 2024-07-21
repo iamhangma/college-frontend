@@ -1,106 +1,132 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+import React from "react";
+import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import "../App.css";
 
 const Register = () => {
-  // useState (Setting input value)
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [createPassword, setCreatePassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [agree, setAgree] = useState(false);
+  const navigate = useNavigate();
 
-  // function for changing input value
-  const changeFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const changeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const changeCreatePassword = (e) => {
-    setCreatePassword(e.target.value);
-  };
-
-  const changeConfirmPassword = (e) => {
-    setConfirmPassword(e.target.value);
-  };
-
-  const changeAgree = (e) => {
-    setAgree(e.target.checked);
-  };
-
-  // function for button
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // check if input value is available
-    console.log(firstName, email, createPassword, confirmPassword, agree);
-  };
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      email: '',
+      createPassword: '',
+      confirmPassword: '',
+      agree: false,
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .required('First name is required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .required('Email is required'),
+      createPassword: Yup.string()
+        .min(8, 'Password must be at least 8 characters')
+        .required('Password is required'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('createPassword'), null], 'Passwords must match')
+        .required('Confirm password is required'),
+      agree: Yup.bool()
+        .oneOf([true], 'You must accept the terms and conditions'),
+    }),
+    onSubmit: values => {
+      console.log(values);
+      navigate('/verification');
+    },
+  });
 
   return (
-    <>
-      <div className="register-container w-100">
-        <div className="register-card">
-          <h1 className="register-title">You’ve completed the questionnaire!</h1>
-          <div>
-            <form className="register-form">
-              <label>Firstname</label>
+    <div className="register-container w-100">
+      <div className="register-card">
+        <h1 className="register-title">You’ve completed the questionnaire!</h1>
+        <div>
+          <form onSubmit={formik.handleSubmit} className="register-form">
+            <label>Firstname</label>
+            <input
+              name="firstName"
+              type="text"
+              className="form-control mb-2"
+              placeholder="Enter your firstname"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.firstName}
+            />
+            {formik.touched.firstName && formik.errors.firstName ? (
+              <div className="error">{formik.errors.firstName}</div>
+            ) : null}
+
+            <label>Email Address</label>
+            <input
+              name="email"
+              type="email"
+              className="form-control mb-2"
+              placeholder="Enter your email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="error">{formik.errors.email}</div>
+            ) : null}
+
+            <label>Create Password</label>
+            <input
+              name="createPassword"
+              type="password"
+              className="form-control mb-2"
+              placeholder="Enter your password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.createPassword}
+            />
+            {formik.touched.createPassword && formik.errors.createPassword ? (
+              <div className="error">{formik.errors.createPassword}</div>
+            ) : null}
+
+            <label>Confirm Password</label>
+            <input
+              name="confirmPassword"
+              type="password"
+              className="form-control mb-2"
+              placeholder="Confirm your password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.confirmPassword}
+            />
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              <div className="error">{formik.errors.confirmPassword}</div>
+            ) : null}
+
+            <div className="form-check mb-2">
               <input
-                onChange={changeFirstName}
-                type="text"
-                className="form-control mb-2"
-                placeholder="Enter your firstname"
+                name="agree"
+                type="checkbox"
+                className="form-check-input"
+                id="agree"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                checked={formik.values.agree}
               />
+              <label className="form-check-label" htmlFor="agree">
+                I agree to the <button type="button" className="link-button">terms & conditions</button> and <button type="button" className="link-button">privacy policy</button>.
+              </label>
+              {formik.touched.agree && formik.errors.agree ? (
+                <div className="error">{formik.errors.agree}</div>
+              ) : null}
+            </div>
 
-              <label>Email Address</label>
-              <input
-                onChange={changeEmail}
-                type="email"
-                className="form-control mb-2"
-                placeholder="Enter your email"
-              />
+            <button type="submit" className="btn btn-danger w-100">
+              Continue
+            </button>
 
-              <label>Create Password</label>
-              <input
-                onChange={changeCreatePassword}
-                type="password"
-                className="form-control mb-2"
-                placeholder="Enter your password"
-              />
-
-              <label>Confirm Password</label>
-              <input
-                onChange={changeConfirmPassword}
-                type="password"
-                className="form-control mb-2"
-                placeholder="Confirm your password"
-              />
-
-              <div className="form-check mb-2">
-                <input
-                  onChange={changeAgree}
-                  type="checkbox"
-                  className="form-check-input"
-                  id="agree"
-                />
-                <label className="form-check-label" htmlFor="agree">
-                  I agree to the <a href="#" className="text-decoration-none">terms & conditions</a> and <a href="#" className="text-decoration-none">privacy policy</a>.
-                </label>
-              </div>
-
-              <button onClick={handleSubmit} className="btn btn-danger w-100">
-                Continue
-              </button>
-
-              <a href="" className="text-black text-decoration-none">
-                Already have an account?
-              </a>
-            </form>
-          </div>
+            <button type="button" className="link-button">
+              Already have an account?
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
