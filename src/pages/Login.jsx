@@ -31,26 +31,21 @@ const Login = () => {
 
       loginUserApi(data)
         .then((res) => {
-          if (res.data.success === false) {
-            toast.error(res.data.message);
-          } else {
-            toast.success(res.data.message);
+          if (res.data.success) {
+            toast.success(res.data.message); // Success toast
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.userData));
-            console.log('Navigating to /questions');
-            navigate("/questions");  // Navigate to /questions
+            navigate("/questions");
+          } else {
+            toast.error(res.data.message); // Error toast
           }
         })
         .catch((err) => {
-          toast.error("Server Error");
+          toast.error("Server Error"); // Error toast for server issues
           console.log(err.message);
         });
     },
   });
-
-  const handleButtonClick = () => {
-    navigate("/questions"); // Navigate to /questions on button click
-  };
 
   return (
     <div className="login-container">
@@ -105,7 +100,7 @@ const Login = () => {
               </a>
             </div>
 
-            <button onClick ={handleButtonClick}type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-primary w-100">
               Login
             </button>
           </form>
@@ -116,14 +111,9 @@ const Login = () => {
               Sign Up
             </Link>
           </div>
-          <div className="d-flex justify-content-center m-3">
-            {/* <button onClick={handleButtonClick} className="btn btn-secondary">
-              Go to Questions
-            </button> */}
-          </div>
-          </div>
         </div>
       </div>
+    </div>
   );
 };
 
